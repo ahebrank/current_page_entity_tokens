@@ -78,7 +78,7 @@ function current_page_entity_tokens_tokens($type, array $tokens, array $data = [
       else {
         $entity_tokens = \Drupal::token()->findWithPrefix($tokens, $entity_type);
         $token_type = \Drupal::service('token.entity_mapper')->getTokenTypeForEntityType($entity_type);
-        $replacements = \Drupal::token()->generate($token_type, $entity_tokens, [$token_type => $entity], $options, $bubbleable_metadata);
+        $replacements += \Drupal::token()->generate($token_type, $entity_tokens, [$token_type => $entity], $options, $bubbleable_metadata);
       }
     }
   }
